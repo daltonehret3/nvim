@@ -1,5 +1,3 @@
-print("Hello from Lazy Test")
-
 vim.wo.number = true
 vim.o.relativenumber = true;
 
@@ -9,14 +7,17 @@ return {
 	"thePrimeagen/refactoring.nvim",
 	"mbbill/undotree",
 	"folke/zen-mode.nvim",
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		dir = "~/Developer/nvim/copilot.vim"
+	},
 	"Eandrju/cellular-automaton.nvim",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		config = function() 
+		config = function()
 			vim.cmd("colorscheme rose-pine")
 		end
 	},
