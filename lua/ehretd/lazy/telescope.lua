@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		"plenary"
+		"nvim-lua/plenary.nvim",
 	},
 
 	config = function() 

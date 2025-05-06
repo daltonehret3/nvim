@@ -12,8 +12,6 @@ return {
 		dir = "~/Developer/nvim/copilot.vim"
 	},
 	"Eandrju/cellular-automaton.nvim",
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
