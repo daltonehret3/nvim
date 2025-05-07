@@ -9,7 +9,7 @@ local cmp_mappings = cmp.mapping.preset.insert({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
-local lsp_attach = function(client, bufnr)
+local lsp_attach = function(_, bufnr)
 	lsp.default_keymaps({buffer = bufnr})
 
 	local opts = {buffer = bufnr, remap = false}
