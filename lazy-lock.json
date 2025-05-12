@@ -11,6 +11,7 @@
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
   "hererocks": { "branch": "master", "commit": "c9c5444dea1e07e005484014a8231aa667be30b6" },
+  "jester": { "branch": "main", "commit": "6679cdc24e4bdb2d61d0e71e3c65011029f166ef" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "2a66ac70f88113f97ec7639c5f57a46521600d44" },
   "mason.nvim": { "branch": "main", "commit": "1bb926ca068a32857b3d0441096497dab3d9e34a" },
