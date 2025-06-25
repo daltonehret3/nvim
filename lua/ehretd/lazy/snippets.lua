@@ -75,6 +75,22 @@ return {
                 },
                 "beforeEach(() => {\n\t$0\n});"
             ),
+            ls.parser.parse_snippet(
+                {
+                    trig = "descr",
+                    name = "Inserts describe() block",
+                    priority = 2000,
+                },
+                "describe('$1', () => {\n\t$0\n});"
+            ),
+            ls.parser.parse_snippet(
+                {
+                    trig = "test",
+                    name = "Inserts test() block",
+                    priority = 2000,
+                },
+                "test('$1', $2 () => {\n\t$0\n});"
+            ),
         }, { key = "javascript" });
     end,
 }
