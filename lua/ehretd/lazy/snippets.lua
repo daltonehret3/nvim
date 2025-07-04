@@ -31,7 +31,7 @@ return {
                 {
                     trig = "log",
                     name = "Insert console.log()",
-                    priority = 2000,
+                    priority = 9999,
                 },
                 "console.log($0);"
             ),
