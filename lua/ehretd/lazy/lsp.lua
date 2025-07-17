@@ -69,12 +69,13 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			},
 			sources = {
-				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+                { name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
 			},
 		})
+
 
 		vim.diagnostic.config({
             float = {
