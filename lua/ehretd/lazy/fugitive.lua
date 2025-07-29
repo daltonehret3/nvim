@@ -20,6 +20,10 @@ return {
 					vim.cmd.Git("push")
 				end, opts)
 
+                vim.keymap.set("n", "<leader>rsh", function()
+                    vim.cmd.Git("reset --hard")
+                end, opts)
+
 				vim.keymap.set("n", "<leader>P", function()
 					vim.cmd.Git({"pull --rebase"})
 				end, opts)
