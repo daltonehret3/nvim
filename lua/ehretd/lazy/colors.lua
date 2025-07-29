@@ -2,8 +2,8 @@ function ColorMyPencils(color)
 	color = color or "tokyonight"
 
 	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.opt.colorcolumn = "120"
 end
 
@@ -14,7 +14,6 @@ return {
             require("tokyonight").setup({
                 style = "night",
                 transparent = true,
-                terminal_colors = true,
                 styles = {
                     comments = { italic = false },
                     keywords = { italic = false },
@@ -23,13 +22,14 @@ return {
                 },
             })
 
+            -- vim.cmd("colorscheme tokyonight")
             -- ColorMyPencils("tokyonight")
         end
     },
     {
         "rose-pine/neovim",
         name = "rose-pine",
-        config = function() 
+        config = function()
             require("rose-pine").setup({
                 disable_background = true
             })
@@ -42,7 +42,6 @@ return {
         "Mofiqul/dracula.nvim",
         config = function()
             require("dracula").setup({
-                -- transparent_bg = true,
                 italic_comment = true,
                 overrides = {
                     -- Normal = { bg = "none" },
@@ -51,6 +50,7 @@ return {
                     SignColumn = { bg = "none" },
                 },
             })
+            vim.cmd("colorscheme dracula")
             ColorMyPencils("dracula")
         end
     },
