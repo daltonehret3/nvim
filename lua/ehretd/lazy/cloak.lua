@@ -1,6 +1,6 @@
 return {
 	"laytan/cloak.nvim",
-	config = function() 
+	config = function()
 		require("cloak").setup({
 			-- Enable in Public --
 			enabled = false,

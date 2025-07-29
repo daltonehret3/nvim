@@ -23,14 +23,8 @@ return {
         },
 	},
 	config = function()
-		require("fidget").setup({
-			-- text = {
-			-- 	spinner = "dots",
-			-- },
-			-- window = {
-			-- 	border = "rounded",
-			-- },
-		})
+		require("fidget").setup({})
+
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
