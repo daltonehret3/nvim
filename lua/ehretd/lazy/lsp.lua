@@ -10,22 +10,34 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		"j-hui/fidget.nvim",
+        {
+            "j-hui/fidget.nvim",
+            opts = {
+                text = {
+                    spinner = "dots",
+                },
+                window = {
+                    border = "rounded",
+                },
+            },
+        },
 	},
 	config = function()
 		require("fidget").setup({
-			text = {
-				spinner = "dots",
-			},
-			window = {
-				border = "rounded",
-			},
+			-- text = {
+			-- 	spinner = "dots",
+			-- },
+			-- window = {
+			-- 	border = "rounded",
+			-- },
 		})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
 			ensure_installed = {
 				"lua_ls",
+                "jsonls",
+                "gopls",
 				"docker_compose_language_service",
 				"dockerls",
 				"eslint",
