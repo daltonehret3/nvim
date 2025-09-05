@@ -8,6 +8,11 @@ return {
 	"mbbill/undotree",
 	"folke/zen-mode.nvim",
     {
+        "nvim-neotest/neotest",
+        commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
+        -- lazy = true,
+    },
+    {
         "nvim-treesitter/nvim-treesitter-context",
         config = function()
             require("treesitter-context").setup({
