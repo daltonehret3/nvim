@@ -1,7 +1,9 @@
 return {
 	"nvim-neotest/neotest",
+    event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
         "nvim-neotest/neotest-jest",
+        "marilari88/neotest-vitest",
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
@@ -16,6 +18,7 @@ return {
 		end
 
 		local jest = require("neotest-jest")
+        local vitest = require("neotest-vitest")
 
 		neotest.setup({
 			summary = {
@@ -49,6 +52,27 @@ return {
 					},
                     isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
 				}),
+                vitest({
+                    vitestCommand = "npx vitest",
+                    args = {"--run", "--reporter", "verbose"},
+                    cwd = function(path)
+                        if string.match(path, "acceptance") then
+                        return vim.fn.fnamemodify(path, ":p:h")
+                        end
+                        return vim.fn.getcwd()
+                    end,
+                    filter_dir = function(name, rel_path, root)
+                        return name ~= "node_modules"
+                    end,
+                    test_match = {
+                        "**/__tests__/**/*.[jt]s?(x)",
+                        "**/tests/**/*.[jt]s?(x)",
+                        "**/?(*.)+(spec|test).[jt]s?(x)",
+                    },
+                    env = {
+                        NODE_ENV = "test",
+                    },
+                }),
 			},
 
 			discovery = {
