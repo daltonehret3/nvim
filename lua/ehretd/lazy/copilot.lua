@@ -10,18 +10,6 @@ return {
     },
     config = function()
         require("CopilotChat").setup({
-            -- prompts = {
-            --     Explain = "Explain how the selected code works in detail.",
-            --     Tests = "Propose useful unit tests for the selected code.",
-            --     Fix = "Please fix the following code.",
-            --     System = function()
-            --         return [[
-            --         You are a code-focused AI programming assistant with an active Agent Client Protocol (ACP).
-            --         You have capabilities to read and analyze code through provided tools.
-            --         Provide clear, direct responses focused on the programming task at hand.
-            --     ]]
-            --     end,
-            -- },
             headers = {
                 user = '👤 You',
                 assistant = '🤖 Copilot',
