@@ -6,8 +6,6 @@ return {
         "zbirenbaum/copilot.lua",
     },
     build = "make tiktoken",
-    opts = {
-    },
     config = function()
         require("CopilotChat").setup({
             headers = {
@@ -16,7 +14,6 @@ return {
                 tool = '🔧 Tool',
             },
             window = {
-                -- layout = "float",
                 border = "rounded",
                 width = 0.3,
                 height = 0.6,
@@ -39,7 +36,7 @@ return {
             model = "claude-3.5-sonnet",
             provider = "copilot",
         })
-        -- Optional keymaps
+
         vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Start CopilotChat" })
         vim.keymap.set("x", "<leader>cc", ":CopilotChatVisual ", { desc = "Start CopilotChat with visual selection" })
     end,
