@@ -7,6 +7,15 @@ local ehretd = augroup("ehretd", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd('BufEnter', {
+    pattern = 'claude-*',
+    callback = function()
+        vim.opt_local.relativenumber = true
+        vim.opt_local.number = false
+        vim.opt_local.conceallevel = 0
+    end,
+})
+
 autocmd('LspAttach', {
 	group = ehretd,
 	callback = function(e)

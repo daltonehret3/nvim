@@ -2,11 +2,11 @@ vim.wo.number = true
 vim.o.relativenumber = true;
 
 return {
-	"folke/tokyonight.nvim",
-	"theprimeagen/vim-be-good",
-	"thePrimeagen/refactoring.nvim",
-	"mbbill/undotree",
-	"folke/zen-mode.nvim",
+    "folke/tokyonight.nvim",
+    "theprimeagen/vim-be-good",
+    "thePrimeagen/refactoring.nvim",
+    "mbbill/undotree",
+    "folke/zen-mode.nvim",
     {
         "nvim-neotest/neotest",
         commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
@@ -29,20 +29,31 @@ return {
             })
         end
     },
-	{
-		"github/copilot.vim",
-		dir = "~/Developer/nvim/copilot.vim"
-	},
-	"Eandrju/cellular-automaton.nvim",
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			vim.cmd("colorscheme rose-pine")
-		end
-	},
-	{
-		"nvim-lua/plenary.nvim",
-		name = "plenary",
-	},
+    {
+        "github/copilot.vim",
+        dir = "~/Developer/nvim/copilot.vim"
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = true },
+                panel = { enabled = true },
+            })
+        end,
+    },
+    "Eandrju/cellular-automaton.nvim",
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        config = function()
+            vim.cmd("colorscheme rose-pine")
+        end
+    },
+    {
+        "nvim-lua/plenary.nvim",
+        name = "plenary",
+    },
 }
