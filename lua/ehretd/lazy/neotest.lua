@@ -60,8 +60,8 @@ return {
                     isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
 				}),
                 vitest({
-                    vitestCommand = "npx vitest",
-                    args = {"--run", "--reporter", "verbose"},
+                    vitestCommand = "npx vitest --reporter=json",
+                    -- args = {"--verbose"},
                     cwd = function(path)
                         if string.match(path, "acceptance") then
                         return vim.fn.fnamemodify(path, ":p:h")
