@@ -35,6 +35,7 @@ return {
 				-- working for all unit tests, not acceptance tests in acceptanct dir
 				jest({
 					jestCommand = "npx jest --json outputFile=./.jest-neotest.json",
+                    jestPackage = "jest.config.js(on)?",
 					cwd = function(path)
 						-- Adjust current working directory based on the test location
 						if string.match(path, "acceptance") then
