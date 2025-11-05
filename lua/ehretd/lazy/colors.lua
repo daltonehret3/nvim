@@ -41,11 +41,12 @@ return {
         "Mofiqul/dracula.nvim",
         config = function()
             require("dracula").setup({
+                show_end_of_buffer = true,
                 italic_comment = true,
                 overrides = {
-                    -- Normal = { bg = "none" },
-                    -- NormalFloat = { bg = "none" },
-                    FloatBorder = { fg = "#6272a4" },
+                    Normal = { bg = "none" },
+                    NormalFloat = { bg = "none" },
+                    FloatBorder = { fg = "#ab0a20" },
                     SignColumn = { bg = "none" },
                 },
             })
