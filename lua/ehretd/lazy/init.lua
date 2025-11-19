@@ -16,7 +16,6 @@ return {
                 options = {
                     theme = "tokyonight",
                     icons_enabled = true,
-                    -- always_divide_middle = true,
                     always_show_tabline = true,
                     section_separators = { left = '', right = '' },
                     component_separators = { left = '', right = '' },
@@ -25,7 +24,7 @@ return {
                     lualine_a = {'mode'},
                     lualine_b = {'branch', 'diff', 'diagnostics'},
                     lualine_c = {'filename'},
-                    lualine_x = {{'datetime', style = '%m-%d-%y %H:%M'}, 'fileformat', 'filetype'},
+                    lualine_x = {{'datetime', style = '%m-%d-%y %H:%M'}, 'filetype'},
                     lualine_y = {'progress'},
                     lualine_z = {'location'}
                 },
