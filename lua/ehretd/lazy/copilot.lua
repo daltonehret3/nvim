@@ -6,6 +6,10 @@ return {
         "zbirenbaum/copilot.lua",
     },
     build = "make tiktoken",
+    opts = {
+        model = "claude-3.5-sonnet",
+        provider = "copilot",
+    },
     config = function()
         require("CopilotChat").setup({
             headers = {
@@ -33,8 +37,6 @@ return {
                     },
                 },
             },
-            model = "claude-3.5-sonnet",
-            provider = "copilot",
         })
 
         vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Start CopilotChat" })
