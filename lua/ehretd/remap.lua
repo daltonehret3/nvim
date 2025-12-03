@@ -3,6 +3,7 @@ vim.g.javascript_quote_style = 'single'
 vim.g.typescript_quote_style = 'single'
 
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>d", [["_d]])
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
