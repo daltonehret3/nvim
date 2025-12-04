@@ -63,7 +63,8 @@ return {
     },
     {
         "github/copilot.vim",
-        dir = "~/Developer/nvim/copilot.vim"
+        dir = "~/Developer/nvim/copilot.vim",
+        enabled = true,
     },
     {
         "zbirenbaum/copilot.lua",
