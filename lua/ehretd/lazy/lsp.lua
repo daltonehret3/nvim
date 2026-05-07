@@ -31,10 +31,12 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "jsonls",
+                "pylsp",
                 "gopls",
                 "docker_compose_language_service",
                 "dockerls",
                 "eslint",
+                "terraformls",
             },
             handlers = {
                 function(server_name)
