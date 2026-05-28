@@ -40,15 +40,6 @@ return {
         end,
     },
     {
-        "nvim-neotest/neotest",
-        commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
-        -- lazy = true,
-    },
-    {
-        "nvim-neotest/neotest-jest",
-        commit = "d34e6fdc8cedc290d36977ff0e865e5077459a49"
-    },
-    {
         "nvim-treesitter/nvim-treesitter-context",
         config = function()
             require("treesitter-context").setup({
