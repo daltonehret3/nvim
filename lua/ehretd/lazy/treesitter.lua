@@ -1,41 +1,44 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-    branch = "master",
+	branch = "main",
+	lazy = false,
 	config = function()
-		require("nvim-treesitter.configs").setup({
-            ignore_install = {},
-			ensure_installed = {
-                "vimdoc",
-                "javascript",
-                "typescript",
-                "c",
-                "lua",
-                "rust",
-                "json",
-                "html",
-                "jsdoc",
-            },
-			sync_install = true,
-			auto_install = true,
-			indent = {
-				enable = true,
-			},
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "markdown" },
-			},
+		-- Register templ parser
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TSUpdate",
+			callback = function()
+				require("nvim-treesitter.parsers").templ = {
+					install_info = {
+						url = "https://github.com/vrischmann/tree-sitter-templ.git",
+						revision = "master",
+					},
+				}
+			end,
 		})
 
-		local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-		treesitter_parser_config.templ = {
-			install_info = {
-				url = "https://github.com/vrischmann/tree-sitter-templ.git",
-				files = { "src/parser.c", "src/scanner.c" },
-				branch = "master",
-			},
-		}
-
 		vim.treesitter.language.register("templ", "templ")
-	end
+
+		-- Install parsers (no-op if already installed)
+		require("nvim-treesitter").install({
+			"vimdoc",
+			"javascript",
+			"typescript",
+			"c",
+			"lua",
+			"rust",
+			"json",
+			"html",
+			"jsdoc",
+		})
+
+		-- Enable treesitter highlighting and indentation per filetype
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "javascript", "typescript", "c", "lua", "rust", "json", "html", "vimdoc", "templ" },
+			callback = function()
+				vim.treesitter.start()
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
+	end,
 }
