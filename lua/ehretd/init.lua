@@ -2,10 +2,44 @@ require("ehretd.remap")
 require("ehretd.set")
 require("ehretd.lazy_init")
 
+local M = {}
 local augroup = vim.api.nvim_create_augroup
 local ehretd = augroup("ehretd", {})
 
 local autocmd = vim.api.nvim_create_autocmd
+
+local function stl_hl(name) return string.format("%%#%s#", name) end
+
+local space = " "
+local double_space = "  "
+
+function M.directory()
+    if vim.v.virtnum ~= 0 then
+        return double_space
+    end
+
+    local name = vim.api.nvim_buf_get_lines(0, vim.v.lnum - 1, vim.v.lnum, true)[1]
+
+    local icon, icon_color
+    if name:sub(-1) == "/" then
+        icon = ""
+        icon_color = "Directory"
+    else
+        local extension = vim.fs.ext(name)
+        local devicons = require("nvim-web-devicons")
+        icon, icon_color = devicons.get_icon(name, extension)
+
+        if not icon then
+            icon, icon_color = devicons.get_icon_by_filetype(vim.bo[0].filetype, { default = true })
+        end
+    end
+
+    return table.concat({
+        stl_hl(icon_color),
+        icon,
+        space,
+    })
+end
 
 autocmd('LspAttach', {
 	group = ehretd,
@@ -39,3 +73,5 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<C-t><C-v>", ":!npx vitest %:p", opts)
 	end
 })
+
+return M
