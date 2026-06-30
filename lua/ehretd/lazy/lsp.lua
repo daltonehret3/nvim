@@ -37,6 +37,7 @@ return {
                 "dockerls",
                 "eslint",
                 "terraformls",
+                "rust_analyzer",
             },
             handlers = {
                 function(server_name)
